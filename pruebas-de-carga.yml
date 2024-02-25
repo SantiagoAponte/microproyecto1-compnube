@@ -1,0 +1,12 @@
+config:
+  target: 'http://192.168.100.7'
+  phases:
+    - duration: 60
+      arrivalRate: 1
+
+scenarios:
+  - flow:
+      - get:
+          url: 'http://192.168.100.7'
+      - get:
+          url: 'http://192.168.100.7'
