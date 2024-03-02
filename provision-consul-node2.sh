@@ -91,5 +91,6 @@ sudo echo "Hello from nodo2" > /var/www/html/index.html
 
 # Arrancar agente de Consul
 sudo consul agent   -ui   -node=agent-two   -bind=192.168.100.6   -enable-script-checks=true  -client=0.0.0.0   -data-dir=.   -config-dir=/etc/consul.d
+sleep 8
 sudo consul join 192.168.100.5
 sudo consul members

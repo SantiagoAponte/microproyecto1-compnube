@@ -97,4 +97,5 @@ sudo echo "Hello from nodo1" > /var/www/html/index.html
 
 # Arrancar agente de Consul
 sudo consul agent -ui -server -bootstrap-expect=1  -node=agent-one  -bind=192.168.100.5 -data-dir=. -client=0.0.0.0  -config-dir=/etc/consul.d
+sleep 8
 

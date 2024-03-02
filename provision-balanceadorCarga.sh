@@ -7,6 +7,13 @@ sudo apt-get install nano -y
 sudo apt-get install vim -y
 sudo apt install git -y
 
+# Instalación de Consul
+wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update -y
+sudo apt install consul -y
+sudo consul -v
+
 
 #Instalacion de HAProxy
 sudo apt update -y
@@ -129,4 +136,8 @@ echo "Archivo de configuración actualizado con éxito."
 
 sudo systemctl restart haproxy
 sudo systemctl status haproxy
+
+# Arrancar agente de Consul
+sudo consul agent   -ui   -node=haproxy   -bind=192.168.100.7   -enable-script-checks=true  -client=0.0.0.0   -data-dir=.   -config-dir=/etc/consul.d
+sleep 8
 
